@@ -5,7 +5,14 @@ var marvel = api.createClient({
 , privateKey: '45b550549ea76bb81e5de001b53f4ea566cfd346'
 });
 
-marvel.characters.findAll()
-  .then(console.log)
+let tabName = {}
+
+marvel.characters.findAll(100)
+  .then(( char ) => {
+    for (item of char.data){
+        console.log(item.name)
+    }
+}
+       ) 
   .fail(console.error)
   .done();
