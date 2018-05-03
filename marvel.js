@@ -6,6 +6,7 @@ const fs = require('fs')
 program
  .version('1.0.0')
  .option('-i, --image', 'Affiche l\'image du personnage choisis')
+ .option('-r, --recherche', 'Recherche les perso commençant par l\'entrée utilisateur')
  
  
 program.parse(process.argv)
@@ -34,6 +35,17 @@ if(program.image){
                      console.error('ERR>', err)
                  }
              })
+    rl.close();
+    });
+} else if (program.recherche){
+    rl.question("Entrez les 3 premières lettre du nom du personnage que vous cherchez ", function(recherche) {
+        marvel.characters.findNameStartsWith(recherche)
+        .then(( char ) => {
+           for (item of char.data){
+               console.log(item.name)
+           }
+        })
+    
     rl.close();
     });
 }
