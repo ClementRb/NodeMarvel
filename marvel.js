@@ -6,7 +6,7 @@ const fs = require('fs')
 program
  .version('1.0.0')
  .option('-i, --image', 'Affiche l\'image du personnage choisis')
- .option('')
+ 
  
 program.parse(process.argv)
 
