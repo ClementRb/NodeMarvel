@@ -1,9 +1,23 @@
 # NodeMarvel
+https://developer.marvel.com
+
+Une fois le repo cloné :
+
+``
+npm install
+``
 
 
+Pour lancer le programme :
+
 ``
-sudo npm i marvel-api
+node marvel.js
 ``
+
+
+Option ``-i`` : Permet de chercher un personnage Marvel, récupérer l'url (chemin + extension) de l'image de ce personnage, puis écrit l'url dans un fichier .txt portant son nom. exemple : spider-man.txt
+
 ``
-sudo npm install commander --save
+node marvel.js -i
 ``
+
