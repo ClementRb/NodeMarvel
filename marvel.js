@@ -39,7 +39,7 @@ if(program.image){
     });
 } else if (program.recherche){
     rl.question("Entrez les 3 premières lettre du nom du personnage que vous cherchez ", function(recherche) {
-        marvel.characters.findNameStartsWith(recherche)
+        marvel.characters.findNameStartsWith(recherche, 100)
         .then(( char ) => {
            for (item of char.data){
                console.log(item.name)
