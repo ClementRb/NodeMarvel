@@ -1,9 +1,15 @@
 # NodeMarvel
+https://developer.marvel.com
+
+Une fois le repo cloné :
+
+``
+npm install
+``
 
 
+Pour lancer le programme :
+
 ``
-sudo npm i marvel-api
-``
-``
-sudo npm install commander --save
+node marvel.js
 ``
