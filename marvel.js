@@ -1,11 +1,10 @@
 var api = require('marvel-api');
 const program = require('commander')
-var inquirer = require('inquirer')
+const inquirer = require('inquirer')
 
 program
  .version('1.0.0')
  .option('-i, --image', 'Affiche l\'image du personnage choisis')
- .option()
  
 program.parse(process.argv)
 
@@ -17,13 +16,17 @@ var marvel = api.createClient({
 let tabName = {}
 
 if(program.image){
-inquirer.prompt([Quel personnage voulez vous télécharger l\image]).then(answers =>{ }});
-marvel.characters.findByName()
-  .then(function(res) {
-    console.log('Found character ID', res.data[0].thumnails);
-    return marvel.characters.comics(res.data[0].thumbnails);
-  })
-  .fail(console.error)
-  .done();
-}else if(program.){
-         }
+    inquirer.prompt([
+    {
+        type : 'input',
+        messge : 'De quel personnage voulez vous télécharger l\'image',
+        name : 'perso'
+    }
+    ]).then((answers))=>{
+        marvel.characters.findByName('spider-man')
+            .then(function(res) {
+            console.log('Image', res.data[0].thumbnails);
+            return marvel.characters.comics(res.data[0].thumbnails);
+            })
+    }
+}
