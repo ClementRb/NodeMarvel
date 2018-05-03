@@ -16,6 +16,7 @@ var marvel = api.createClient({
 let tabName = {}
 
 if(program.image){
+    console.log(inquirer)
     inquirer.prompt([
     {
         type : 'input',
@@ -23,10 +24,10 @@ if(program.image){
         name : 'perso'
     }
     ]).then((answers))=>{
-        marvel.characters.findByName('spider-man')
+        marvel.characters.findByName('${answers}')
             .then(function(res) {
-            console.log('Image', res.data[0].thumbnails);
-            return marvel.characters.comics(res.data[0].thumbnails);
+            console.log('Image', res.data[0].thumbnail);
+            return marvel.characters.comics(res.data[0].thumbnail);
             })
     }
 }
