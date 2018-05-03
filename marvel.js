@@ -1,9 +1,10 @@
 var api = require('marvel-api');
 const program = require('commander')
+var inquirer = require('inquirer')
 
 program
  .version('1.0.0')
- .option('-f, --femme','Affiche toutes les femmes  Marvel')
+ .option('-i, --image', 'Affiche l\'image du personnage choisis')
  .option()
  
 program.parse(process.argv)
@@ -15,16 +16,14 @@ var marvel = api.createClient({
 
 let tabName = {}
 
-if(program.femme){
- marvel.characters.findAll(100)
-  .then(( char ) => {
-    for (item of char.data){
-        console.log(item.name)
-    }
-}
-       ) 
+if(program.image){
+inquirer.prompt([Quel personnage voulez vous télécharger l\image]).then(answers =>{ }});
+marvel.characters.findByName()
+  .then(function(res) {
+    console.log('Found character ID', res.data[0].thumnails);
+    return marvel.characters.comics(res.data[0].thumbnails);
+  })
   .fail(console.error)
   .done();
 }else if(program.){
-  marvel.characters.findByName('black widow')
          }
